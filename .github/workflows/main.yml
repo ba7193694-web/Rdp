@@ -180,7 +180,7 @@ jobs:
           retention-days: 7
           if-no-files-found: warn
 
-      - name: Keep alive for 6 hours
+      - name: Keep alive for 9 hours
         shell: powershell
         run: |
           Write-Host "=== SCREENSHOTS UPLOADED ==="
@@ -194,8 +194,8 @@ jobs:
             (New-TimeSpan `
               -Start $startTime `
               -End (Get-Date)
-            ).TotalHours -lt 6
+            ).TotalHours -lt 9
           ) {
               Write-Host "[$(Get-Date)] Still alive..."
-              Start-Sleep -Seconds 600
+              Start-Sleep -Seconds 900
           }
